@@ -12,11 +12,14 @@ const cities = [
   'Ciudad de México,mx',
   'Madrid,es',
 ];
+const handleSelectionLocation = city => {
+  console.log('handleSelectionLocation');
+}
 
 function App() {
   return (
     <div className='App'>
-      <LocationList cities={cities} />
+      <LocationList cities={cities} onSelectedLocation={handleSelectionLocation} />
     </div>
   );
 }
