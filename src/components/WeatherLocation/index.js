@@ -5,7 +5,7 @@ import getUrlWeatherByCity from './../../service/getUrlWeatherByCity'
 import Location from './Location';
 import WeatherData from './WeatherData';
 import transformWeather from './../../service/transformWeather'
-import { api_weather } from './../../constants/api_url'
+//import { api_weather } from './../../constants/api_url'
 import './styles.css'
 
 class WeatherLocation extends Component {
