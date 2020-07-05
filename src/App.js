@@ -13,7 +13,7 @@ const cities = [
   'Madrid,es',
 ];
 const handleSelectionLocation = city => {
-  console.log('handleSelectionLocation');
+  console.log(`handleSelectionLocation ${city}`);
 }
 
 function App() {
