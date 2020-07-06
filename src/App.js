@@ -13,7 +13,7 @@ const cities = [
   'Tingo Maria,pe',
   'Lima,pe',
   'Buenos Aires,ar',
-  'Washington,us',
+  'Washington dc,us',
   'Bogota,col',
   'Ciudad de México,mx',
   'Madrid,es',
@@ -52,7 +52,7 @@ class App extends Component {
             <Paper elevation={4}>
               <div className='detail'>
                 {
-                  city ? <ForecastExtended city={city} /> : <h1>No se ha seleccionado Ciudad</h1>
+                  city && <ForecastExtended city={city} />
                 }
               </div>
             </Paper>
