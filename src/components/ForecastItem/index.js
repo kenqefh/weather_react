@@ -1,7 +1,11 @@
 import React from 'react'
-
-const ForecastItem = _ => (
-    <div>Item</div>
+import PropTypes from 'prop-types'
+const ForecastItem = ({ weekDay }) => (
+    <div>{weekDay}</div>
 );
+
+ForecastItem.propTypes = {
+    weekDay: PropTypes.string.isRequired,
+}
 
 export default ForecastItem
