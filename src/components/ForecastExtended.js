@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import ForecastItem from './ForecastItem'
-import transformForecast from './../service/transformForecast'
-import './styles.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ForecastItem from './ForecastItem';
+import transformForecast from './../service/transformForecast';
+import './styles.css';
 /*
 const days = [
     'Lunes',
@@ -32,21 +32,33 @@ class ForecastExtended extends Component {
 
     componentDidMount() {
         const url_forecast = `${url}?q=${this.props.city}&appid=${api_key}`
-
-        fetch(url_forecast).then(
-            data => (data.json())
-        ).then(
-            weather_data => {
-                console.log(weather_data);
-                const forecastData = transformForecast(weather_data);
-                this.setState({ forecastData })
-            }
-        );
+        console.log(url_forecast)
+        fetch(url_forecast, { method: 'GET' })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        //.catch(err => console.log(err))
+        /*
+                fetch(url_forecast, { method: 'GET' }).then(
+                    data => (data.json())
+                ).then(
+                    weather_data => {
+                        console.log(weather_data);
+                        const forecastData = transformForecast(weather_data);
+                        console.log(forecastData);
+                        this.setState({ forecastData })
+                    }
+                ).catch(error => console.log(`Cant conected: ${error}`));
+                */
     }
 
-    renderForecastItemDays() {
-        return <h2>render Items</h2>
-        //return days.map(day => (<ForecastItem weekDay={day} key={day} hour={11} data={data} />))
+    renderForecastItemDays(forecastData) {
+        return forecastData.map(forecast => (
+            <ForecastItem
+                key={`${forecast.weekDay}${forecast.hour}`}
+                weekDay={forecast.weekDay}
+                hour={forecast.hour}
+                data={forecast.data}
+            />))
     }
 
     renderProgress() {
